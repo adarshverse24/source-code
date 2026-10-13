@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LNCT Canteen Bhopal — Anand Nagar, Bhopal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon: #3B0A1A;
+    --maroon-2: #57101F;
+    --maroon-3: #710F27;
+    --gold: #D9A441;
+    --gold-soft: #F0CE8C;
+    --ivory: #FBF3E4;
+    --ivory-2: #F3E7D2;
+    --ink: #2A0E14;
+    --ink-soft: #6B4A50;
+    --green: #1E7A3C;
+    --wa-green: #25D366;
+    --serif: 'Cormorant Garamond', serif;
+    --sans: 'Poppins', sans-serif;
+    --maxw: 1180px;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background:var(--gold); color:var(--maroon); }
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 32px; }
+  .eyebrow{
+    font-family:var(--sans); font-weight:600; font-size:12.5px;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--gold);
+  }
+  section{ padding:96px 0; border-bottom:1px solid #E4D3B4; }
+
+  /* ---------------- HEADER ---------------- */
+  header{
+    position:sticky; top:0; z-index:80;
+    background:rgba(59,10,26,.94);
+    backdrop-filter:blur(8px);
+    box-shadow:0 6px 18px rgba(0,0,0,.18);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:80px;
+  }
+  .logo{
+    font-family:var(--serif); font-weight:700; font-size:26px;
+    color:var(--ivory); display:flex; align-items:center; gap:10px;
+  }
+  .logo .leaf{ color:var(--gold); font-size:20px; }
+  .nav-links{
+    display:flex; gap:34px; font-size:14px; font-weight:500;
+  }
+  .nav-links a{ color:var(--ivory-2); transition:color .2s ease; position:relative; }
+  .nav-links a:hover{ color:var(--gold); }
+  .nav-actions{ display:flex; gap:10px; align-items:center; }
+  .pill-btn{
+    display:flex; align-items:center; gap:7px;
+    font-size:13px; font-weight:600; padding:10px 16px; border-radius:30px;
+    box-shadow:0 4px 0 rgba(0,0,0,.18), 0 6px 14px rgba(0,0,0,.2);
+    transition:transform .15s ease, box-shadow .15s ease;
+    border:none; cursor:pointer;
+  }
+  .pill-btn:active{ transform:translateY(3px); box-shadow:0 1px 0 rgba(0,0,0,.18); }
+  .pill-call{ background:var(--gold); color:var(--maroon); }
+  .pill-call:hover{ background:var(--gold-soft); }
+  .pill-wa{ background:var(--wa-green); color:#fff; }
+  .pill-wa:hover{ background:#2fe07a; }
+  .nav-toggle{
+    display:none; flex-direction:column; gap:5px; background:none; border:none;
+    cursor:pointer; padding:8px;
+  }
+  .nav-toggle span{ width:22px; height:2px; background:var(--ivory); }
+
+  /* ---------------- HERO ---------------- */
+  .hero{
+    position:relative;
+    background:radial-gradient(ellipse at top right, var(--maroon-3), var(--maroon) 60%);
+    color:var(--ivory);
+    overflow:hidden;
+    padding:130px 0 110px;
+    border-bottom:1px solid #E4D3B4;
+  }
+  .hero::before{
+    content:'';
+    position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(217,164,65,.10) 0, transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(217,164,65,.10) 0, transparent 45%);
+    pointer-events:none;
+  }
+  .jali{ position:absolute; inset:0; opacity:.10; pointer-events:none; }
+  .hero-inner{ position:relative; z-index:2; text-align:center; max-width:760px; margin:0 auto; }
+  .hero .eyebrow{ display:block; margin-bottom:18px; }
+  .hero h1{
+    font-family:var(--serif); font-weight:700; font-size:clamp(46px,7vw,86px);
+    line-height:1.02; letter-spacing:.01em;
+    text-shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+  .hero h1 span{ color:var(--gold); font-style:italic; }
+  .hero-sub{ margin:26px auto 0; max-width:520px; color:var(--ivory-2); font-size:17px; font-weight:300; }
+  .hero-cta{ margin-top:40px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+  .btn{
+    font-family:var(--sans); font-size:14px; font-weight:600; letter-spacing:.02em;
+    padding:15px 30px; border-radius:34px; border:1.5px solid var(--gold);
+    display:inline-flex; align-items:center; gap:8px; transition:all .18s ease;
+    box-shadow:0 6px 0 rgba(0,0,0,.2), 0 10px 20px rgba(0,0,0,.25);
+  }
+  .btn:active{ transform:translateY(4px); box-shadow:0 2px 0 rgba(0,0,0,.2); }
+  .btn-solid{ background:var(--gold); color:var(--maroon); }
+  .btn-solid:hover{ background:var(--gold-soft); }
+  .btn-wa{ background:var(--wa-green); color:#fff; border-color:var(--wa-green); }
+  .btn-wa:hover{ background:#2fe07a; }
+  .hero-info{
+    margin-top:56px; display:flex; justify-content:center; gap:44px; flex-wrap:wrap;
+    font-size:13px; color:var(--ivory-2);
+  }
+  .hero-info div{ display:flex; flex-direction:column; gap:4px; align-items:center; }
+  .hero-info b{ color:var(--gold); font-weight:600; font-size:12px; letter-spacing:.08em; text-transform:uppercase; }
+
+  /* ---------------- ABOUT / FEATURES ---------------- */
+  .features{ display:grid; grid-template-columns:repeat(3,1fr); gap:30px; margin-top:56px; }
+  .feature{
+    background:var(--ivory-2); border:1px solid #E4D3B4; border-radius:16px;
+    padding:34px 28px; text-align:center;
+    box-shadow:0 14px 28px -18px rgba(59,10,26,.4);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .feature:hover{ transform:translateY(-6px); box-shadow:0 22px 34px -16px rgba(59,10,26,.35); }
+  .feature .ic{ font-size:34px; margin-bottom:16px; }
+  .feature h3{ font-family:var(--serif); font-size:22px; font-weight:600; margin-bottom:8px; }
+  .feature p{ font-size:14px; color:var(--ink-soft); }
+  .about-head{ max-width:640px; }
+  .about-head h2{ font-family:var(--serif); font-size:clamp(32px,4vw,46px); font-weight:700; margin-top:12px; }
+  .about-head p{ margin-top:18px; color:var(--ink-soft); font-size:16px; }
+
+  /* ---------------- MENU ---------------- */
+  .menu{ background:var(--ivory); }
+  .sec-head{ text-align:center; max-width:640px; margin:0 auto 20px; }
+  .sec-head h2{ font-family:var(--serif); font-size:clamp(34px,4.4vw,50px); font-weight:700; margin-top:12px; }
+  .sec-head p{ margin-top:14px; color:var(--ink-soft); font-size:15.5px; }
+
+  .tabs{ display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin:44px 0 48px; }
+  .tab{
+    font-size:13.5px; font-weight:600; letter-spacing:.02em;
+    padding:11px 22px; border-radius:30px; border:1.5px solid var(--maroon-2);
+    color:var(--maroon-2); cursor:pointer; background:none; transition:all .2s ease;
+  }
+  .tab.active, .tab:hover{ background:var(--maroon-2); color:var(--ivory); }
+
+  .menu-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; perspective:1200px; }
+  .item{
+    background:#fff; border:1px solid #ECDFC6; border-radius:18px;
+    padding:20px; display:none; flex-direction:column; position:relative;
+    box-shadow:0 16px 30px -20px rgba(59,10,26,.5), 0 2px 6px rgba(59,10,26,.06);
+    transition:transform .12s ease-out, box-shadow .25s ease;
+    transform-style:preserve-3d; will-change:transform;
+  }
+  .item.show{ display:flex; }
+  .item .glare{
+    position:absolute; inset:0; border-radius:18px; pointer-events:none;
+    background:transparent; mix-blend-mode:overlay; transition:background .15s ease;
+  }
+  .item-photo-wrap{
+    position:relative; height:160px; border-radius:12px; overflow:hidden;
+    margin-bottom:16px; box-shadow:0 12px 22px -12px rgba(59,10,26,.55);
+    background:linear-gradient(135deg,var(--gold-soft),var(--maroon-3));
+  }
+  .item-photo-wrap img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    transition:transform .45s ease; transform:translateZ(20px);
+  }
+  .item:hover .item-photo-wrap img{ transform:scale(1.1) translateZ(20px); }
+  .photo-fallback{
+    width:100%; height:100%; display:flex; align-items:center; justify-content:center;
+    font-size:44px; background:conic-gradient(from 220deg, var(--gold-soft), var(--gold), var(--maroon-3), var(--gold-soft));
+  }
+  .veg-badge{
+    position:absolute; top:10px; right:10px; width:18px; height:18px;
+    background:#fff; border:2px solid var(--green); border-radius:4px;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 3px 8px rgba(0,0,0,.3);
+  }
+  .veg-badge::after{ content:''; width:8px; height:8px; border-radius:50%; background:var(--green); }
+  .card-tag{
+    position:absolute; top:26px; left:26px; z-index:2;
+    font-family:var(--sans); font-size:10.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+    color:#fff; background:rgba(59,10,26,.75); padding:4px 10px; border-radius:20px;
+  }
+  .item h3{ font-family:var(--serif); font-size:21px; font-weight:600; margin-bottom:6px; }
+  .item p{ font-size:13.5px; color:var(--ink-soft); flex-grow:1; margin-bottom:16px; }
+  .item-foot{
+    display:flex; justify-content:space-between; align-items:center;
+    border-top:1px dashed #E4D3B4; padding-top:14px;
+  }
+  .price{ font-family:var(--serif); font-weight:700; font-size:20px; color:var(--maroon-2); }
+  .stepper-wrap{
+    display:flex; align-items:center; gap:10px;
+    background:var(--ivory-2); border-radius:24px; padding:5px;
+    box-shadow:inset 0 2px 5px rgba(59,10,26,.15);
+  }
+  .qty-btn{
+    width:26px; height:26px; border-radius:50%; border:none; cursor:pointer;
+    background:var(--maroon-2); color:#fff; font-size:15px; font-weight:700; line-height:1;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 3px 0 rgba(0,0,0,.25);
+    transition:transform .1s ease, box-shadow .1s ease;
+  }
+  .qty-btn:active{ transform:translateY(2px); box-shadow:0 1px 0 rgba(0,0,0,.25); }
+  .qty-btn:disabled{ opacity:.35; cursor:default; }
+  .qty-count{ min-width:16px; text-align:center; font-weight:600; font-size:14px; }
+
+  /* ---------------- CONTACT ---------------- */
+  .contact{ background:var(--maroon); color:var(--ivory); position:relative; overflow:hidden; border-bottom:none; }
+  .contact-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:60px; align-items:start; }
+  .contact h2{ font-family:var(--serif); font-size:clamp(32px,4.4vw,48px); font-weight:700; margin-top:12px; }
+  .contact p{ color:var(--ivory-2); margin-top:16px; max-width:440px; font-size:15px; }
+  .contact-cards{ display:flex; flex-direction:column; gap:16px; margin-top:32px; }
+  .call-card{
+    background:rgba(217,164,65,.12); border:1px solid rgba(217,164,65,.4);
+    border-radius:16px; padding:22px 26px; display:flex; align-items:center; gap:18px;
+    box-shadow:0 16px 30px -18px rgba(0,0,0,.6);
+  }
+  .call-card.wa{ background:rgba(37,211,102,.14); border-color:rgba(37,211,102,.45); cursor:pointer; }
+  .call-card .ic{ font-size:28px; }
+  .call-card a, .call-card .cta-text{ font-family:var(--serif); font-size:24px; font-weight:700; color:var(--gold); }
+  .call-card.wa .cta-text{ color:#4ee38a; }
+  .call-card span{ display:block; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--ivory-2); margin-bottom:4px; }
+  .chip-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+  .chip{
+    font-size:12.5px; font-weight:600; padding:9px 16px; border-radius:20px;
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2); color:var(--ivory-2);
+    cursor:pointer; transition:all .2s ease;
+  }
+  .chip:hover{ background:var(--wa-green); border-color:var(--wa-green); color:#fff; }
+  .info-list{ display:flex; flex-direction:column; gap:22px; }
+  .info-row{ display:flex; gap:16px; align-items:flex-start; }
+  .info-row .ic{ font-size:22px; }
+  .info-row b{ display:block; font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--gold); margin-bottom:4px; }
+  .info-row span{ font-size:14.5px; color:var(--ivory-2); }
+
+  footer{ background:var(--maroon); padding:26px 0; text-align:center; font-size:12.5px; color:var(--ivory-2); }
+
+  /* ---------------- CHECKOUT MODAL ---------------- */
+  .checkout-overlay{
+    display:none; position:fixed; inset:0; z-index:120;
+    background:rgba(42,14,20,.55); backdrop-filter:blur(3px);
+    align-items:center; justify-content:center; padding:20px;
+  }
+  .checkout-overlay.open{ display:flex; }
+  .checkout-card{
+    background:var(--ivory); border-radius:18px; padding:32px;
+    max-width:380px; width:100%;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.5);
+  }
+  .checkout-card h3{ font-family:var(--serif); font-size:26px; font-weight:700; color:var(--maroon); }
+  .checkout-sub{ font-size:13.5px; color:var(--ink-soft); margin-top:6px; margin-bottom:20px; }
+  .checkout-label{ display:block; font-size:12.5px; font-weight:600; color:var(--maroon-2); margin-bottom:6px; margin-top:14px; }
+  .checkout-input{
+    width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid #E4D3B4;
+    font-family:var(--sans); font-size:14px; color:var(--ink); background:#fff;
+  }
+  .checkout-input:focus{ outline:none; border-color:var(--gold); }
+  .checkout-error{ color:#B3261E; font-size:12.5px; margin-top:10px; min-height:16px; }
+  .checkout-actions{ display:flex; gap:12px; margin-top:16px; justify-content:flex-end; }
+  .btn-ghost-maroon{
+    background:none; color:var(--maroon-2); border:1.5px solid var(--maroon-2);
+    box-shadow:none; padding:13px 24px;
+  }
+  .btn-ghost-maroon:hover{ background:var(--maroon-2); color:var(--ivory); }
+
+  /* ---------------- FLOATING BUTTONS ---------------- */
+  .float-stack{ position:fixed; bottom:26px; right:26px; z-index:90; display:flex; flex-direction:column; gap:14px; align-items:flex-end; }
+  .float-btn{
+    position:relative; border:none; cursor:pointer;
+    width:60px; height:60px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-size:26px; color:#fff;
+    box-shadow:0 12px 24px rgba(0,0,0,.3), 0 4px 0 rgba(0,0,0,.25);
+    transition:transform .12s ease;
+  }
+  .float-btn:active{ transform:translateY(3px); }
+  .float-wa{ background:var(--wa-green); animation:pulse 2.4s infinite; width:64px; height:64px; font-size:30px; }
+  .float-call{ background:var(--gold); color:var(--maroon); width:48px; height:48px; font-size:20px; }
+  .cart-badge{
+    position:absolute; top:-6px; left:-6px; background:var(--maroon); color:#fff;
+    font-size:11px; font-weight:700; min-width:20px; height:20px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center; padding:0 5px;
+    box-shadow:0 2px 6px rgba(0,0,0,.4); display:none;
+  }
+  @keyframes pulse{
+    0%{ box-shadow:0 0 0 0 rgba(37,211,102,.55), 0 12px 24px rgba(0,0,0,.3); }
+    70%{ box-shadow:0 0 0 16px rgba(37,211,102,0), 0 12px 24px rgba(0,0,0,.3); }
+    100%{ box-shadow:0 0 0 0 rgba(37,211,102,0), 0 12px 24px rgba(0,0,0,.3); }
+  }
+
+  /* ---------------- REVEAL ---------------- */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    .float-wa{ animation:none; }
+    html{ scroll-behavior:auto; }
+    .item{ transition:none !important; }
+  }
+
+  /* ---------------- RESPONSIVE ---------------- */
+  @media (max-width:960px){ .menu-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:860px){
+    .wrap{ padding:0 20px; }
+    .nav-links{
+      position:absolute; top:80px; left:0; right:0; background:var(--maroon);
+      flex-direction:column; gap:0; max-height:0; overflow:hidden; transition:max-height .3s ease;
+    }
+    .nav-links.open{ max-height:320px; }
+    .nav-links a{ padding:16px 20px; display:block; border-top:1px solid rgba(217,164,65,.15); }
+    .pill-call{ display:none; }
+    .nav-toggle{ display:flex; }
+    .features{ grid-template-columns:1fr; }
+    .menu-grid{ grid-template-columns:1fr; }
+    .contact-grid{ grid-template-columns:1fr; gap:36px; }
+    section{ padding:64px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="logo"><span class="leaf">❁</span>LNCT Canteen</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="tel:9589893160" class="pill-btn pill-call">📞 Call</a>
+      <button class="pill-btn pill-wa" onclick="openWhatsApp('Hi LNCT Canteen Bhopal! I would like to know more about your menu.')">💬 WhatsApp</button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <svg class="jali" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="jaliPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+          <circle cx="20" cy="20" r="16" fill="none" stroke="#D9A441" stroke-width="1"/>
+          <circle cx="0" cy="0" r="16" fill="none" stroke="#D9A441" stroke-width="1"/>
+          <circle cx="40" cy="0" r="16" fill="none" stroke="#D9A441" stroke-width="1"/>
+          <circle cx="0" cy="40" r="16" fill="none" stroke="#D9A441" stroke-width="1"/>
+          <circle cx="40" cy="40" r="16" fill="none" stroke="#D9A441" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="400" fill="url(#jaliPattern)"/>
+    </svg>
+    <div class="wrap hero-inner">
+      <span class="eyebrow">LNCT COLLEGE · Bhopal</span>
+      <h1>LNCT <span>Canteen</span></h1>
+      <p class="hero-sub">Home-style veg delights — crisp chaat, steaming South Indian classics, and comforting curries, served fresh with a whole lot of love.</p>
+      <div class="hero-cta">
+        <a href="#menu" class="btn btn-solid">Explore Menu</a>
+        <button class="btn btn-wa" onclick="openWhatsApp('Hi LNCT Canteen Bhopal! I would like to place an order.')">💬 Order on WhatsApp</button>
+      </div>
+      <div class="hero-info">
+        <div><b>Open Daily</b>10:00 AM – 10:30 PM</div>
+        <div><b>Location</b>LNCT COLLEGE, Bhopal</div>
+        <div><b>100% Veg</b>Pure Vegetarian Kitchen</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="about-head reveal">
+        <span class="eyebrow">Our Story</span>
+        <h2>A canteen built around simple, honest food.</h2>
+        <p>Since opening our doors in Anand Nagar, LNCT Canteen Bhopal has stayed true to one idea: simple, honest vegetarian food, made fresh every single day. From street-side chaat to South Indian classics and comforting thalis, every plate is prepared the way it would be at home.</p>
+      </div>
+      <div class="features">
+        <div class="feature reveal">
+          <div class="ic">🌿</div>
+          <h3>Fresh Daily</h3>
+          <p>Ingredients sourced and prepared fresh every morning — nothing sits overnight.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="ic">🍽️</div>
+          <h3>Pure Vegetarian</h3>
+          <p>A 100% vegetarian kitchen, so every dish on our menu is safe for you to enjoy.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="ic">💬</div>
+          <h3>Order on WhatsApp</h3>
+          <p>Build your order right here, then send it to us on WhatsApp in one tap.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" class="menu">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Our Menu</span>
+        <h2>Made fresh, served with love</h2>
+        <p>Tap + to add a dish to your order, then send it to us on WhatsApp.</p>
+      </div>
+
+      <div class="tabs" id="tabs">
+        <button class="tab active" data-cat="all">All</button>
+        <button class="tab" data-cat="chaat">Chaat &amp; Starters</button>
+        <button class="tab" data-cat="south">South Indian</button>
+        <button class="tab" data-cat="mains">Main Course</button>
+        <button class="tab" data-cat="drinks">Drinks</button>
+        <button class="tab" data-cat="desserts">Desserts</button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid">
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap contact-grid">
+      <div class="reveal">
+        <span class="eyebrow">Get In Touch</span>
+        <h2>Order ahead, or come say hello.</h2>
+        <p>Message us on WhatsApp to place an order or ask a question — food is prepared fresh once you confirm, so it's hot and ready when you arrive.</p>
+        <div class="contact-cards">
+          <div class="call-card wa" onclick="openWhatsApp('Hi LNCT Canteen Bhopal! I would like to place an order.')">
+            <div class="ic">💬</div>
+            <div><span>Order on WhatsApp</span><span class="cta-text">Message us now</span></div>
+          </div>
+          <div class="call-card">
+            <div class="ic">📞</div>
+            <div><span>Call to order</span><a href="tel:9589893160">9589893160</a></div>
+          </div>
+        </div>
+        <div class="chip-row">
+          <button class="chip" onclick="openWhatsApp('Hi LNCT Canteen Bhopal! I would like to place an order.')">🛍️ Order food</button>
+          <button class="chip" onclick="openWhatsApp('Hi LNCT Canteen Bhopal! Could you tell me more about your menu?')">📋 Ask about menu</button>
+          <button class="chip" onclick="openWhatsApp('Hi LNCT Canteen Bhopal! I would like to book a table.')">🪑 Table booking</button>
+        </div>
+      </div>
+      <div class="info-list reveal">
+        <div class="info-row">
+          <div class="ic">📍</div>
+          <div><b>Address</b><span>LNCT Canteen Bhopal, Anand Nagar, Bhopal, Madhya Pradesh</span></div>
+        </div>
+        <div class="info-row">
+          <div class="ic">🕒</div>
+          <div><b>Hours</b><span>Open daily, 10:00 AM – 10:30 PM</span></div>
+        </div>
+        <div class="info-row">
+          <div class="ic">🍽️</div>
+          <div><b>Kitchen</b><span>100% pure vegetarian</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="checkout-overlay" id="checkoutOverlay">
+  <div class="checkout-card">
+    <h3>Complete your order</h3>
+    <p class="checkout-sub">Enter your details so we can send your receipt on WhatsApp.</p>
+    <label class="checkout-label" for="custName">Your Name</label>
+    <input class="checkout-input" type="text" id="custName" placeholder="e.g. Rahul Sharma" autocomplete="name">
+    <label class="checkout-label" for="custPhone">Phone Number</label>
+    <input class="checkout-input" type="tel" id="custPhone" placeholder="e.g. 9589893160" autocomplete="tel">
+    <p class="checkout-error" id="checkoutError"></p>
+    <div class="checkout-actions">
+      <button class="btn btn-ghost-maroon" onclick="closeCheckout()">Cancel</button>
+      <button class="btn btn-wa" onclick="submitCheckout()">✅ Place Order</button>
+    </div>
+  </div>
+</div>
+
+<div class="float-stack">
+  <button class="float-btn float-wa" onclick="handleOrderClick()" aria-label="Order on WhatsApp">
+    💬
+    <span class="cart-badge" id="cartBadge">0</span>
+  </button>
+  <a href="tel:9589893160" class="float-btn float-call" aria-label="Call LNCT Canteen Bhopal">📞</a>
+</div>
+
+<footer>
+  <div class="wrap">© 2026 LNCT Canteen Bhopal, Anand Nagar, Bhopal — 9589893160</div>
+</footer>
+
+<script>
+  const WHATSAPP_NUMBER = '919589893160';
+
+  // ---------- Menu data ----------
+  const MENU = [
+    // Chaat & Starters
+    {cat:'chaat', name:'Samosa (2 pcs)', price:40, desc:'Crisp golden pastry filled with spiced potato and peas, served with tangy chutney.', img:'North_Indian_style_samosa.jpg'},
+    {cat:'chaat', name:'Aloo Tikki Chaat', price:60, desc:'Pan-fried potato patties topped with curd, tamarind chutney and sev.', img:'Aloo_Tikki_Chaat.JPG'},
+    {cat:'chaat', name:'Pani Puri', price:50, desc:'Crisp puris filled with spiced potato, served with tangy mint water.', img:'Crispy_Pani_Puri.jpg'},
+    {cat:'chaat', name:'Bhel Puri', price:50, desc:'Puffed rice tossed with vegetables, sev and a trio of tangy chutneys.', img:'Bhel_puri.jpg'},
+    {cat:'chaat', name:'Dahi Puri', price:60, desc:'Bite-sized puris layered with potato, whipped curd and sweet chutney.', img:'Dahi_puri_1.jpg'},
+    {cat:'chaat', name:'Papdi Chaat', price:55, desc:'Crisp papdi loaded with potato, chickpeas, curd and chutneys.', img:'Papri_Chaat.jpg'},
+    // South Indian
+    {cat:'south', name:'Masala Dosa', price:90, desc:'Crisp golden crepe filled with spiced potato masala, served with sambar and chutney.', img:'MasalaDosa.jpg'},
+    {cat:'south', name:'Plain Dosa', price:70, desc:'A classic thin, crisp rice-and-lentil crepe, served with sambar and chutney.', img:'Dosa_1.JPG'},
+    {cat:'south', name:'Rava Dosa', price:100, desc:'Lacy, crisp semolina crepe with a light peppery flavour.', img:'Rava_dosa.JPG'},
+    {cat:'south', name:'Idli Sambar (2 pcs)', price:60, desc:'Steamed rice cakes served with hot sambar and coconut chutney.', img:'Idli_Sambar.JPG'},
+    {cat:'south', name:'Medu Vada (2 pcs)', price:50, desc:'Crisp fried lentil doughnuts, soft on the inside, served with chutney.', img:'Medu_Vada.JPG'},
+    {cat:'south', name:'Uttapam', price:90, desc:'Thick, fluffy rice pancake topped with onions, tomato and chilli.', img:'Utthappam.jpg'},
+    // Main Course
+    {cat:'mains', name:'Paneer Butter Masala', price:160, desc:'Soft paneer cubes in a rich, buttery tomato gravy, served with roti.', img:'Paneer_Butter_Masala.jpg'},
+    {cat:'mains', name:'Veg Thali', price:150, desc:'A wholesome plate of dal, sabzi, rice, roti, salad and papad.', img:'Vegetarian_Thali.jpg'},
+    {cat:'mains', name:'Chole Bhature', price:90, desc:'Spiced chickpea curry served with fluffy, deep-fried bhature.', img:'Chole_bhature.jpg'},
+    {cat:'mains', name:'Veg Biryani', price:130, desc:'Fragrant basmati rice layered with spiced mixed vegetables, served with raita.', img:'Vegetable_Biryani.JPG'},
+    {cat:'mains', name:'Dal Makhani', price:120, desc:'Slow-cooked black lentils in a creamy, buttery tomato gravy.', img:'Dal-Makhani.jpg'},
+    {cat:'mains', name:'Mix Veg Curry', price:110, desc:'Seasonal vegetables simmered in a light, home-style masala gravy.', img:'Vegetable_curry_(3587163023).jpg'},
+    // Drinks
+    {cat:'drinks', name:'Cold Drink (Coke)', price:40, desc:'Chilled Coca-Cola, served ice cold.', img:'Coca_cola_glass.jpg'},
+    {cat:'drinks', name:'Sprite', price:40, desc:'Crisp, chilled lemon-lime soda.', img:'Sprite_in_a_glass_cup.jpg'},
+    {cat:'drinks', name:'Sweet Lassi', price:60, desc:'Thick, creamy yoghurt drink, lightly sweetened and chilled.', img:'Lassi.jpg'},
+    {cat:'drinks', name:'Masala Chai', price:20, desc:'Hot, spiced milk tea brewed the traditional way.', img:'Masala_Chai.JPG'},
+    {cat:'drinks', name:'Cold Coffee', price:70, desc:'Chilled, frothy coffee blended with milk and a touch of sugar.', img:'Chocolate_Cold_Coffee.jpg'},
+    {cat:'drinks', name:'Mango Shake', price:80, desc:'Thick, chilled mango shake made with fresh seasonal mango.', img:'Mango_shake.jpg'},
+    // Desserts
+    {cat:'desserts', name:'Gulab Jamun (2 pcs)', price:50, desc:'Soft milk dumplings soaked in warm rose-scented sugar syrup.', img:'Gulab.jamun.jpg'},
+    {cat:'desserts', name:'Rasmalai', price:60, desc:'Soft paneer discs soaked in chilled, cardamom-scented sweet milk.', img:'Rasmalai1.jpg'},
+    {cat:'desserts', name:'Kulfi', price:50, desc:'Traditional dense, creamy Indian ice cream, served on a stick.', img:'Punjabi_Kulfi.JPG'},
+    {cat:'desserts', name:'Ice Cream Sundae', price:90, desc:'Layers of ice cream, nuts and chocolate sauce in a tall glass.', img:'Ice_Cream_Sundae.jpg'},
+    {cat:'desserts', name:'Jalebi', price:50, desc:'Crisp, syrup-soaked spirals, served warm.', img:'Jalebi_2.jpg'},
+    {cat:'desserts', name:'Kheer', price:60, desc:'Creamy rice pudding, slow-cooked with milk, cardamom and nuts.', img:'Kheer.jpg'},
+  ];
+
+  const CAT_LABEL = {chaat:'Chaat', south:'South Indian', mains:'Main Course', drinks:'Drinks', desserts:'Dessert'};
+  const grid = document.getElementById('menuGrid');
+
+  MENU.forEach((item, i) => {
+    const imgUrl = `https://commons.wikimedia.org/wiki/Special:FilePath/${item.img}?width=500`;
+    const card = document.createElement('div');
+    card.className = 'item show';
+    card.dataset.cat = item.cat;
+    card.dataset.name = item.name;
+    card.dataset.price = item.price;
+    card.innerHTML = `
+      <div class="glare"></div>
+      <span class="card-tag">${CAT_LABEL[item.cat]}</span>
+      <div class="item-photo-wrap">
+        <img src="${imgUrl}" alt="${item.name}" loading="lazy"
+             onerror="this.parentElement.innerHTML='<div class=&quot;photo-fallback&quot;>🍽️</div>'">
+        <span class="veg-badge" title="Pure Veg"></span>
+      </div>
+      <h3>${item.name}</h3>
+      <p>${item.desc}</p>
+      <div class="item-foot">
+        <span class="price">₹${item.price}</span>
+        <div class="stepper-wrap">
+          <button class="qty-btn minus" disabled onclick="changeQty(this,-1)">−</button>
+          <span class="qty-count">0</span>
+          <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  // ---------- Mobile nav ----------
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => navLinks.classList.remove('open'))
+  );
+
+  // ---------- Category tabs ----------
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const cat = tab.dataset.cat;
+      document.querySelectorAll('.item').forEach(item => {
+        item.classList.toggle('show', cat === 'all' || item.dataset.cat === cat);
+      });
+    });
+  });
+
+  // ---------- Cart & WhatsApp ordering ----------
+  const cart = {};
+
+  function changeQty(btn, delta){
+    const item = btn.closest('.item');
+    const wrap = btn.closest('.stepper-wrap');
+    const countEl = wrap.querySelector('.qty-count');
+    let qty = parseInt(countEl.textContent, 10) + delta;
+    if (qty < 0) qty = 0;
+    countEl.textContent = qty;
+    wrap.querySelector('.minus').disabled = qty === 0;
+
+    const name = item.dataset.name;
+    const price = parseFloat(item.dataset.price);
+    if (qty === 0) delete cart[name];
+    else cart[name] = { qty, price };
+
+    updateCartBadge();
+  }
+
+  function updateCartBadge(){
+    const totalQty = Object.values(cart).reduce((sum, i) => sum + i.qty, 0);
+    const badge = document.getElementById('cartBadge');
+    if (totalQty > 0) {
+      badge.textContent = totalQty;
+      badge.style.display = 'flex';
+    } else {
+      badge.style.display = 'none';
+    }
+  }
+
+  function buildOrderMessage(){
+    const names = Object.keys(cart);
+    if (names.length === 0) {
+      return 'Hi LNCT Canteen Bhopal! I would like to place an order.';
+    }
+    let total = 0;
+    const lines = names.map(name => {
+      const { qty, price } = cart[name];
+      const lineTotal = qty * price;
+      total += lineTotal;
+      return `• ${name} x${qty} — ₹${lineTotal}`;
+    });
+    return `Hi LNCT Canteen Bhopal! I'd like to order:\n${lines.join('\n')}\n\nTotal: ₹${total}\n\nPlease confirm. Thank you!`;
+  }
+
+  function openWhatsApp(customMessage){
+    const message = customMessage || buildOrderMessage();
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
+
+  // ---------- Checkout (name + phone) & receipt on WhatsApp ----------
+  function handleOrderClick(){
+    const hasItems = Object.keys(cart).length > 0;
+    if (hasItems) {
+      openCheckout();
+    } else {
+      openWhatsApp();
+    }
+  }
+
+  function openCheckout(){
+    document.getElementById('checkoutError').textContent = '';
+    document.getElementById('checkoutOverlay').classList.add('open');
+  }
+
+  function closeCheckout(){
+    document.getElementById('checkoutOverlay').classList.remove('open');
+  }
+
+  function normalizePhone(raw){
+    const digits = raw.replace(/\D/g, '');
+    if (digits.length === 10) return '91' + digits;
+    if (digits.length === 12 && digits.startsWith('91')) return digits;
+    return null;
+  }
+
+  function buildReceiptMessage(name, phoneDigits){
+    let total = 0;
+    const lines = Object.keys(cart).map(itemName => {
+      const { qty, price } = cart[itemName];
+      const lineTotal = qty * price;
+      total += lineTotal;
+      return `• ${itemName} x${qty} — ₹${lineTotal}`;
+    });
+    return `🧾 LNCT Canteen Bhopal — Receipt\n\nName: ${name}\nPhone: ${phoneDigits}\n\n${lines.join('\n')}\n\nTotal: ₹${total}\n\nThank you for visiting. Please visit again!`;
+  }
+
+  function submitCheckout(){
+    const nameInput = document.getElementById('custName');
+    const phoneInput = document.getElementById('custPhone');
+    const errorEl = document.getElementById('checkoutError');
+
+    const name = nameInput.value.trim();
+    const phoneDigits = normalizePhone(phoneInput.value.trim());
+
+    if (!name) {
+      errorEl.textContent = 'Please enter your name.';
+      return;
+    }
+    if (!phoneDigits) {
+      errorEl.textContent = 'Please enter a valid 10-digit phone number.';
+      return;
+    }
+
+    const receipt = buildReceiptMessage(name, phoneDigits);
+
+    // Send the bill/receipt to the customer's WhatsApp number
+    window.open(`https://wa.me/${phoneDigits}?text=${encodeURIComponent(receipt)}`, '_blank');
+
+    // Clear the cart after a completed order
+    Object.keys(cart).forEach(key => delete cart[key]);
+    document.querySelectorAll('.stepper-wrap').forEach(wrap => {
+      wrap.querySelector('.qty-count').textContent = '0';
+      wrap.querySelector('.minus').disabled = true;
+    });
+    updateCartBadge();
+
+    nameInput.value = '';
+    phoneInput.value = '';
+    closeCheckout();
+  }
+
+  // ---------- 3D tilt effect on menu cards ----------
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReducedMotion && window.matchMedia('(hover: hover)').matches) {
+    document.addEventListener('mousemove', (e) => {
+      const card = e.target.closest && e.target.closest('.item');
+      if (!card) return;
+      const r = card.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+      const cx = r.width / 2, cy = r.height / 2;
+      const rotateY = ((x - cx) / cx) * 5;
+      const rotateX = -((y - cy) / cy) * 5;
+      card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      const glare = card.querySelector('.glare');
+      if (glare) glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,.35), transparent 60%)`;
+    });
+    document.addEventListener('mouseout', (e) => {
+      const card = e.target.closest && e.target.closest('.item');
+      if (!card) return;
+      const related = e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest('.item');
+      if (related === card) return;
+      card.style.transform = '';
+      const glare = card.querySelector('.glare');
+      if (glare) glare.style.background = 'transparent';
+    });
+  }
+
+  // ---------- Scroll reveal ----------
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
